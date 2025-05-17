@@ -1,11 +1,8 @@
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
 
-export async function POST(req: Request) {
+export async function POST(req: any) {
   try {
-    const evt = await verifyWebhook(
-      //@ts-expect-error
-      req,
-    );
+    const evt = await verifyWebhook(req);
 
     const { id } = evt.data;
     const eventType = evt.type;
