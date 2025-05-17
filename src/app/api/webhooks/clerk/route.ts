@@ -3,7 +3,7 @@ import { verifyWebhook } from "@clerk/nextjs/webhooks";
 export async function POST(req: Request) {
   try {
     const evt = await verifyWebhook(
-      //@ts-ignore
+      //@ts-expect-error
       req,
     );
 
