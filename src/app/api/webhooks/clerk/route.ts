@@ -1,9 +1,11 @@
 import { verifyWebhook } from "@clerk/nextjs/webhooks";
-import { NextApiRequest } from "next";
 
-export async function POST(req: NextApiRequest) {
+export async function POST(req: Request) {
   try {
-    const evt = await verifyWebhook(req);
+    const evt = await verifyWebhook(
+      //@ts-ignore
+      req,
+    );
 
     const { id } = evt.data;
     const eventType = evt.type;
